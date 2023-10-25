@@ -6,6 +6,7 @@ class CustomTextField extends StatefulWidget {
   final String label;
   final bool isSecret;
   final List<TextInputFormatter>? inputFormatter;
+  final TextStyle? labelStyle;
 
   CustomTextField({
     super.key,
@@ -13,6 +14,7 @@ class CustomTextField extends StatefulWidget {
     required this.label,
     this.isSecret = false,
     this.inputFormatter,
+    this.labelStyle,
   });
 
   @override
@@ -40,7 +42,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         inputFormatters: widget.inputFormatter,
         obscureText: isObscure,
         decoration: InputDecoration(
-            prefixIcon: Icon(widget.icon),
+            prefixIcon: Icon(widget.icon, color: const Color(0xFF800080),),
             suffixIcon: widget.isSecret
                 ? IconButton(
                     onPressed: () {
@@ -49,14 +51,21 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       });
                     },
                     icon: Icon(
-                        isObscure ? Icons.visibility : Icons.visibility_off),
+                        isObscure ? Icons.visibility : Icons.visibility_off, color: const Color(0xFF800080),),
                   )
                 : null,
             labelText: widget.label,
+            labelStyle: widget.labelStyle,
             isDense: true,
-            border: OutlineInputBorder(
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Color(0xFF800080), width: 2.0),
               borderRadius: BorderRadius.circular(18),
-            )),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: Color(0xFF800080), width: 2.0),
+              borderRadius: BorderRadius.circular(18),
+            ),
+      ),
       ),
     );
   }

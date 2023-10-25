@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quintana/src/auth/sign_up_screen.dart';
 import 'package:quintana/src/base/base_screen.dart';
 import 'package:quintana/src/config/custom_colors.dart';
+import 'package:image/image.dart' as img;
 
 import 'components/custom_text_field.dart';
 
@@ -14,39 +15,44 @@ class SignInScreen extends StatelessWidget {
     final size = MediaQuery
         .of(context)
         .size;
+    final originalImage = Image.asset('asset/tribunatw.png');
 
     return Scaffold(
-      backgroundColor: CustomColors.customSwatchColor,
+      backgroundColor: const Color(0xFF000000),
       body: SingleChildScrollView(
         child: SizedBox(
           height: size.height,
           width: size.width,
           child: Column(
             children: [
-
-//Categoria e Nome do app
+              SizedBox(
+                width: size.width,
+                height: size.height * 0.3,
+                child: originalImage,
+              ),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-//Nome do app
-                    Text.rich(
+                    //Nome do app
+                    const Text.rich(
                       TextSpan(
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 40,
                         ),
                         children: [
-                          const TextSpan(
-                            text: 'Green',
+                          TextSpan(
+                            text: 'Tribuna',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Color(0xFFecb920),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           TextSpan(
-                            text: 'grocer',
+                            text: 'TW',
                             style: TextStyle(
-                              color: CustomColors.customContrasColor,
+                              color: Color(0xFFf1f1f1),
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ],
@@ -63,12 +69,7 @@ class SignInScreen extends StatelessWidget {
                           pause: Duration.zero,
                           repeatForever: true,
                           animatedTexts: [
-                            FadeAnimatedText('Frutas'),
-                            FadeAnimatedText('Verduras'),
-                            FadeAnimatedText('Legumes'),
-                            FadeAnimatedText('Carnes'),
-                            FadeAnimatedText('Cereais'),
-                            FadeAnimatedText('Laticíneos'),
+                            FadeAnimatedText('Tribal Wars'),
                           ],
                         ),
                       ),
@@ -83,9 +84,9 @@ class SignInScreen extends StatelessWidget {
                   vertical: 40,
                 ),
                 decoration: const BoxDecoration(
-                    color: Colors.white,
                     borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(45))),
+                        top: Radius.circular(45)),
+                    color: Color(0xFFf1f1f1) ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -93,12 +94,14 @@ class SignInScreen extends StatelessWidget {
                     CustomTextField(
                       icon: Icons.email,
                       label: 'E-mail',
+                      labelStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
 //Senha
                     CustomTextField(
                       icon: Icons.lock,
                       label: 'Senha',
                       isSecret: true,
+                      labelStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
 
 //Botão de entrar
@@ -106,8 +109,10 @@ class SignInScreen extends StatelessWidget {
                       height: 50,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
+                          primary: const Color(0xFF800080),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18)),
+                            borderRadius: BorderRadius.circular(18)
+                          )
                         ),
                         onPressed: () {
                           Navigator.of(context).pushReplacement(
@@ -120,6 +125,7 @@ class SignInScreen extends StatelessWidget {
                           'Entrar',
                           style: TextStyle(
                             fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -133,6 +139,7 @@ class SignInScreen extends StatelessWidget {
                           'Esqueceu a senha?',
                           style: TextStyle(
                             color: CustomColors.customContrasColor,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -143,22 +150,22 @@ class SignInScreen extends StatelessWidget {
                         bottom: 10,
                       ),
                       child: Row(
-                        children: [
+                        children: const [
                           Expanded(
                             child: Divider(
-                              color: Colors.grey.withAlpha(90),
+                              color: Colors.black,
                               thickness: 2,
                             ),
                           ),
-                          const Padding(
+                          Padding(
                             padding: EdgeInsets.symmetric(
                               horizontal: 15,
                             ),
-                            child: Text('Ou'),
+                            child: Text('Ou', style: TextStyle(fontWeight: FontWeight.bold),),
                           ),
                           Expanded(
                             child: Divider(
-                              color: Colors.grey.withAlpha(90),
+                              color: Colors.black,
                               thickness: 2,
                             ),
                           ),
@@ -170,10 +177,11 @@ class SignInScreen extends StatelessWidget {
                       height: 50,
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
+                          primary: const Color(0xFF800080),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18),
                           ),
-                          side: const BorderSide(width: 2, color: Colors.green),
+                          side: const BorderSide(width: 2, color: Color(0xFF993399)),
                         ),
                         onPressed: () {
                           Navigator.of(context).push(
@@ -188,6 +196,7 @@ class SignInScreen extends StatelessWidget {
                           'Criar conta',
                           style: TextStyle(
                             fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),

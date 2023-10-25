@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quintana/src/home/equipe_tab.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
@@ -24,12 +25,7 @@ class _BaseScreenState extends State<BaseScreen> {
           Container(
             color: Colors.yellow,
           ),
-          Container(
-            color: Colors.blue,
-          ),
-          Container(
-            color: Colors.purple,
-          ),
+          const EquipeTab(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -41,17 +37,15 @@ class _BaseScreenState extends State<BaseScreen> {
           });
         },
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.black,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white.withAlpha(100),
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'Home'),
+              icon: Icon(Icons.home_outlined), label: 'Início'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined), label: 'Carrinho'),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Pedidos'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline), label: 'Perfil'),
+              icon: Icon(Icons.shopping_cart_outlined), label: 'Sorteio'),
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Equipe'),
         ],
       ),
     );
